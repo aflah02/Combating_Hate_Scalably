@@ -18,8 +18,8 @@ def remove_whitespaces(post: str) -> str:
     return post
 
 def remove_stopwords(post: list[str]) -> list[str]:
-    stopwords = stopwords.words('english')
-    altered_text = [w for w in post if w not in stopwords]
+    stopwords_list = stopwords.words('english')
+    altered_text = [w for w in post if w not in stopwords_list]
     return altered_text
 
 def tokenize(text: str) -> list[str]:
@@ -58,8 +58,8 @@ if __name__ == "__main__":
     df_train = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_train.csv")
     df_test = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_test.csv")
     
-    df_train["preprocessed_text"] = df_train.apply(lambda row: preprocess(row["tweet"]), axis = 1)
-    df_test["preprocessed_text"] = df_test.apply(lambda row: preprocess(row["tweet"]), axis = 1)
+    df_train["preprocessed_text"] = df_train.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
+    df_test["preprocessed_text"] = df_test.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
 
     df_train.to_csv("../Data/PreprocessedData/train_preprocessed.csv")
     df_test.to_csv("../Data/PreprocessedData/test_preprocessed.csv")
