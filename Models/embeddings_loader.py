@@ -42,7 +42,8 @@ def load_labels(path = None):
         labels_save_path = path
     train = np.load(os.path.join(labels_save_path, 'train_labels.npy'), allow_pickle=True)
     dev = np.load(os.path.join(labels_save_path, 'dev_labels.npy'), allow_pickle=True)
-    return train, dev
+    test = np.load(os.path.join(labels_save_path, 'test_labels.npy'), allow_pickle=True)
+    return train, dev, test
 
 def load_sent_trans(path = None):
     if path == None:
