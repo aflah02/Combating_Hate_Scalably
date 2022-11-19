@@ -55,8 +55,9 @@ def split_csv(df):
     return df
 
 if __name__ == "__main__":
+    parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
     df_train = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_train.csv")
-    df_test = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_test.csv")
+    df_test = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_test_modified.csv")
     
     df_train["preprocessed_text"] = df_train.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
     df_test["preprocessed_text"] = df_test.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
