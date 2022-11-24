@@ -69,8 +69,8 @@ except:
     train_labels, dev_labels, test_labels = load_labels()
 
 label_replacement = {
-    'NOT': 0,
-    'OFF': 1,
+    'OFF': 0,
+    'NOT': 1,
 }
 
 # Replace labels with numbers
