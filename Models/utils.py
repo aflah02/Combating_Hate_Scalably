@@ -35,24 +35,6 @@ def get_f1_test_scores(filename, score_list, embeds):
                 continue
     return result
 
-def create_csv():
-    column_names = ["Classifier",
-            "Accuracy Train", "Accuracy Dev", "Accuracy Test",
-            "Weighted F1 Train", "Weighted F1 Dev", "Weighted F1 Test",
-            "Macro F1 Train", "Macro F1 Dev", "Macro F1 Test",
-            "Micro F1 Train", "Micro F1 Dev", "Micro F1 Test",
-            "Weighted Recall Train", "Weighted Recall Dev", "Weighted Recall Test",
-            "Macro Recall Train", "Macro Recall Dev", "Macro Recall Test",
-            "Micro Recall Train", "Micro Recall Dev", "Micro Recall Test"]
-    embeds = ["glove", "fasttext", "word2vec", "tf-idf", "faster-no-pca", "faster-pca", "better-no-pca", "better-pca"]
-    df = []
-    for filename in os.listdir():
-        if ".ipynb" in filename:
-            curr_scores = get_f1_test_scores(filename, column_names[1:], embeds)
-            df.extend(curr_scores)
-    df = pd.DataFrame(df, columns=column_names)
-    df.to_csv("../Results/MidEval_Reported_Scores.csv")
-
 parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 save_folder_path = os.path.join(parent_dir, 'Models\ModelDumps')
 
@@ -76,39 +58,31 @@ label_replacement = {
 # Replace labels with numbers
 train_labels = [label_replacement[label] for label in train_labels]
 dev_labels = [label_replacement[label] for label in dev_labels]
-test_labels = [label_replacement[label] for label in test_labels]
 
-def computeAllScores(y_pred_train, y_pred_dev, y_pred_test):
+def computeAllScores(y_pred_train, y_pred_dev):
     print("Accuracy Train: ", accuracy_score(train_labels, y_pred_train))
     print("Accuracy Dev: ", accuracy_score(dev_labels, y_pred_dev))
-    print("Accuracy Test: ", accuracy_score(test_labels, y_pred_test))
+
     print("Weighted F1 Train: ", f1_score(train_labels, y_pred_train, average='weighted'))
     print("Weighted F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='weighted'))
-    print("Weighted F1 Test: ", f1_score(test_labels, y_pred_test, average='weighted'))
+
     print("Macro F1 Train: ", f1_score(train_labels, y_pred_train, average='macro'))
     print("Macro F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='macro'))
-    print("Macro F1 Test: ", f1_score(test_labels, y_pred_test, average='macro'))
+
     print("Micro F1 Train: ", f1_score(train_labels, y_pred_train, average='micro'))
     print("Micro F1 Dev: ", f1_score(dev_labels, y_pred_dev, average='micro'))
-    print("Micro F1 Test: ", f1_score(test_labels, y_pred_test, average='micro'))
+
     print("Weighted Recall Train: ", recall_score(train_labels, y_pred_train, average='weighted'))
     print("Weighted Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='weighted'))
-    print("Weighted Recall Test: ", recall_score(test_labels, y_pred_test, average='weighted'))
+
     print("Macro Recall Train: ", recall_score(train_labels, y_pred_train, average='macro'))
     print("Macro Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='macro'))
-    print("Macro Recall Test: ", recall_score(test_labels, y_pred_test, average='macro'))
+
     print("Micro Recall Train: ", recall_score(train_labels, y_pred_train, average='micro'))
     print("Micro Recall Dev: ", recall_score(dev_labels, y_pred_dev, average='micro'))
-    print("Micro Recall Test: ", recall_score(test_labels, y_pred_test, average='micro'))
+
     # Confusion Matrix
     print("Confusion Matrix Train: ")
     print(confusion_matrix(train_labels, y_pred_train))
     print("Confusion Matrix Dev: ")
     print(confusion_matrix(dev_labels, y_pred_dev))
-    print("Confusion Matrix Test: ")
-    print(confusion_matrix(test_labels, y_pred_test))
-
-if __name__=="__main__":
-    create_csv()
-    # df = pd.read_csv("../Results/MidEval_Reported_Scores.csv")
-    # print(df.head())
