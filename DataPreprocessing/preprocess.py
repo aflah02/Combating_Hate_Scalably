@@ -57,10 +57,13 @@ def split_csv(df):
 if __name__ == "__main__":
     parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
     df_train = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_train.csv")
-    df_test = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_test_modified.csv")
-    
+    df_test = pd.read_csv("../Data/OldData/H1_Offensive_Language_Identification_test.csv")
+    df_vidgen = pd.read_csv("../Data/Dynamically Generated Hate Dataset v0.2.3.csv")
+    df_vidgen = df_vidgen[['text', 'label']]
     df_train["preprocessed_text"] = df_train.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
     df_test["preprocessed_text"] = df_test.apply(lambda row: preprocess(row["tweet"], True), axis = 1)
+    df_vidgen["preprocessed_text"] = df_vidgen.apply(lambda row: preprocess(row["text"], True), axis = 1)
 
     df_train.to_csv("../Data/PreprocessedData/train_preprocessed.csv")
     df_test.to_csv("../Data/PreprocessedData/test_preprocessed.csv")
+    df_vidgen.to_csv("../Data/PreprocessedData/vidgen_preprocessed.csv")
