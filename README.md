@@ -20,6 +20,9 @@ We performed the following preprocessing steps on the given tweets ; converting 
 We tried various visualization techniques to understand the distribution of the task better. We noticed that the data was somewhat skewed, with a majority of the labels in favor of one class (62% NOT Offensive and 38% Offensive) which we can also see in the figure. As with all hate speech datasets, we see a skewed distribution of class labels. However, the skewness in this dataset is not as bad as some other datasets where only around 5-10% of the total dataset is hateful. This prior bias also might contribute to poor results in some cases. We also tried topic modeling (Figures 2, 3) to see if we can see any clear topics across the 2 classes but surprisingly the most popular topics in both datasets are the same. This shows how non-trivial this task is
 
 (TODO: Add image of 62-38 split yo)
+<a>
+    <img src="EDA/Images/class_disribution.png" alt="Logo" width="150" height="120">
+</a>
 
 ### Modelling:
 We first experimented with classical Machine Learning Models namely SVM, MLP, and Perceptron. For each of these models we convert the input text into sentence vectors by either first obtaining word embeddings and averaging them over the sentence in the case of non contextual embeddings or by directly using a Siamese Network exposed via [SBERT](https://arxiv.org/abs/1908.10084) to obtain the sentence embeddings. We also try RNN, LSTM and GRU based models for our work.
