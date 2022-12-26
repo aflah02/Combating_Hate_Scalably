@@ -1,6 +1,6 @@
-# Offensive-Speech-Detection: Combating Hate in a Scalable Way
+# Vote! Don’t Retrain: Combating Hate in a Scalable Way
 
-Majority of the work is part of our course project for [NLP 2022 Course](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE556). 
+This repository contains our course project for [NLP 2022 Course](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE556). 
 
 ### Offensive Speech:
 Here, offensive is used as an umbrellla term to determine any form of profane,  
@@ -19,10 +19,11 @@ We performed the following preprocessing steps on the given tweets ; converting 
 ### Data Visualization:
 We tried various visualization techniques to understand the distribution of the task better. We noticed that the data was somewhat skewed, with a majority of the labels in favor of one class (62% NOT Offensive and 38% Offensive) which we can also see in the figure. As with all hate speech datasets, we see a skewed distribution of class labels. However, the skewness in this dataset is not as bad as some other datasets where only around 5-10% of the total dataset is hateful. This prior bias also might contribute to poor results in some cases. We also tried topic modeling (Figures 2, 3) to see if we can see any clear topics across the 2 classes but surprisingly the most popular topics in both datasets are the same. This shows how non-trivial this task is
 
-(TODO: Add image of 62-38 split yo)
+ <p align="center">
 <a>
-    <img src="EDA/Images/class_disribution.png" alt="Logo" width="150" height="120">
+    <img width="452" alt="image" src="https://user-images.githubusercontent.com/72096386/209498129-ef28464c-c37f-4634-a41f-2ae88969cafa.png">
 </a>
+ </p>
 
 ### Modelling:
 We first experimented with classical Machine Learning Models namely SVM, MLP, and Perceptron. For each of these models we convert the input text into sentence vectors by either first obtaining word embeddings and averaging them over the sentence in the case of non contextual embeddings or by directly using a Siamese Network exposed via [SBERT](https://arxiv.org/abs/1908.10084) to obtain the sentence embeddings. We also try RNN, LSTM and GRU based models for our work.
@@ -42,7 +43,17 @@ This yields us 2 interesting results:
 * There are some signals which are captured by these separately finetuned language models which makes them stand out. Combining these results brings significant gain to our performance.
 * Simple max voting performs much better than fancy heuristics, is scalable and more explainable as we can see which models think the tweet should be classified as hateful and which ones think it should not.
 
-(TODO: Add image of results yo)
+ <p align="center">
+<img width="595" alt="image" src="https://user-images.githubusercontent.com/72096386/209498091-de5c0c29-85ee-4de2-b3b0-40c1d140b594.png">
+ </p>
+ 
+---
+### Baselines and Benchmark Models
+Apart from training our own models we also use some benchmark models which acheieved SOTA in SemEval 2019 and 2020
+
+- [Kungfupanda at SemEval-2020 Task 12: BERT-Based Multi-TaskLearning for Offensive Language Detection](https://aclanthology.org/2020.semeval-1.272/)
+- [NULI at SemEval-2019 Task 6: Transfer Learning for Offensive Language Detection using Bidirectional Transformers](https://aclanthology.org/S19-2011/)
+- [UHH-LT at SemEval-2020 Task 12: Fine-Tuning of Pre-Trained Transformer Networks for Offensive Language Detection](https://aclanthology.org/2020.semeval-1.213.pdf)
 
 --- 
 ### Directory Structure:
