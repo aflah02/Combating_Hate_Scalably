@@ -55,11 +55,15 @@ Apart from training our own models we also use some benchmark models which achei
 - [NULI at SemEval-2019 Task 6: Transfer Learning for Offensive Language Detection using Bidirectional Transformers](https://aclanthology.org/S19-2011/)
 - [UHH-LT at SemEval-2020 Task 12: Fine-Tuning of Pre-Trained Transformer Networks for Offensive Language Detection](https://aclanthology.org/2020.semeval-1.213.pdf)
 
+For these baselines we use the codes provided by their authors.
+
+Overall our [Final Kaggle contest ranking was 2nd](https://www.kaggle.com/competitions/cse556nlp22projecth1/leaderboard) (Not directly reflected in the link as some further changes were made to the ranking by the organizers) tied with another team. The best model turned out to be the one by UHH-LT.
+
 --- 
 ### Directory Structure:
 - ```Data```: Stores Data
-- ```Data Preprocessing```: Self explanatory (no?).
-- ```EDA```: Data visualizations?
+- ```Data Preprocessing```: Contains the Preprocessing Files
+- ```EDA```: Our Visualizations and Analysis
 - ```Models```: Contains code for various models.
 - ```Results```: Stores resulting labels for each model.
 - ```Word Embeddings```: Contains code for producing embedded vectors of tweets.
