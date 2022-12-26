@@ -3,8 +3,7 @@
 This repository contains our course project for [NLP 2022 Course](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE556). 
 
 ### Offensive Speech:
-Here, offensive is used as an umbrellla term to determine any form of profane,  
-abusive, hateful, abusive language being used. Offensive speech is any type of speech, conduct, writing, or expression that is considered aggressive, insulting, or degrading to an individual or group of people.
+Here, offensive is used as an umbrellla term to determine any form of profane, abusive, hateful, abusive language being used. Offensive speech is any type of speech, conduct, writing, or expression that is considered aggressive, insulting, or degrading to an individual or group of people.
 
 ### Associated Task for our Project:
 Given a tweet, the task is to identify whether it offensive or not. We deal with labels at the first level, i.e. binary classification of whether a tweet is Hateful/Offensive or not.
