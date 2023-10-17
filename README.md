@@ -2,6 +2,8 @@
 
 This repository contains our course project for [NLP 2022 Course](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE556). 
 
+*Accepted at ICLR 2023 for the Tiny Papers Track*
+
 ### Offensive Speech:
 Here, offensive is used as an umbrellla term to determine any form of profane, abusive, hateful, abusive language being used. Offensive speech is any type of speech, conduct, writing, or expression that is considered aggressive, insulting, or degrading to an individual or group of people.
 
