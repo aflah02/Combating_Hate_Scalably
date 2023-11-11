@@ -69,3 +69,26 @@ Overall our [Final Kaggle contest ranking was 2nd](https://www.kaggle.com/compet
 - ```Results```: Stores resulting labels for each model.
 - ```Word Embeddings```: Contains code for producing embedded vectors of tweets.
 
+---
+### Citations
+To cite our work, kindly use the following BibTeX:
+```
+@inproceedings{DBLP:conf/iclr/KhanYJG23,
+  author       = {Mohammad Aflah Khan and
+                  Neemesh Yadav and
+                  Mohit Jain and
+                  Sanyam Goyal},
+  editor       = {Krystal Maughan and
+                  Rosanne Liu and
+                  Thomas F. Burns},
+  title        = {The Art of Embedding Fusion: Optimizing Hate Speech Detection},
+  booktitle    = {The First Tiny Papers Track at {ICLR} 2023, Tiny Papers @ {ICLR} 2023,
+                  Kigali, Rwanda, May 5, 2023},
+  publisher    = {OpenReview.net},
+  year         = {2023},
+  url          = {https://openreview.net/pdf?id=1yXbt6\_o6av},
+  timestamp    = {Wed, 19 Jul 2023 17:21:16 +0200},
+  biburl       = {https://dblp.org/rec/conf/iclr/KhanYJG23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
